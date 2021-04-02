@@ -14,8 +14,10 @@ void fillBlank(int r,int l,int field[row][line],char surface[row][line]);
 int main()
 {
     int mineNum;
-    cout<<"ÇëÊäÈëÀ×Êý"<<endl;
+    a:cout<<"è¯·è¾“å…¥é›·æ•°"<<endl;
     cin>>mineNum;
+    if(mineNum>row*line || mineNum<1)
+        goto a;
     int mineField[row][line]= {0};
     int field[row][line]= {0};
     char surface[row][line]= {' '};
@@ -43,11 +45,16 @@ int main()
     while(flag==0)
     {
         int r,l;
-        cout<<"ÇëÊäÈëÅÅ²éµÄÐÐÁÐ"<<endl;
+        cout<<"è¯·è¾“å…¥æŽ’æŸ¥çš„è¡Œåˆ—"<<endl;
         cin>>r>>l;
+        if(!(r>=0&&r<row&&l>=0&&l<line))
+        {
+            cout<<"è¾“å…¥é”™è¯¯ï¼"<<endl;
+            continue;
+        }
         if(field[r][l]==-1)
         {
-            cout<<"Ê§°Ü£¡"<<endl;
+            cout<<"å¤±è´¥ï¼"<<endl;
             fieldPrint(field);
             break;
         }
